@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Happy Birthday Maahi!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #b3c6ff, #e6b3ff);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .message {
+            font-size: 1.5em;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .emoji {
+            font-size: 2em;
+        }
+        .floating-stars, .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            animation: float 6s infinite;
+        }
+        @keyframes float {
+            0% { top: -50px; }
+            50% { top: 100%; }
+            100% { top: -50px; }
+        }
+        #heart {
+            animation-duration: 3s;
+            animation-delay: 1s;
+        }
+        .floating-hearts {
+            animation-name: heartFloat;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+        #bgMusic {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday, Maahi!</h1>
+    <div class="message">
+        <p>
+            To the most beautiful, cutie, small baby, intelligent, kind, and loving cutie baby I’ve ever known, today is your day, and I just want to say how endlessly lucky I am to have you in my life. Your smile lights up my darkest days, your laugh is my favorite melody, and your love is the greatest gift I could ever receive.
+        </p>
+        <p>
+            Thank you for being my strength, my peace, my biggest supporter, and the cutest baby cutie I adore every single day. Seeing you handle me soooo cutely makes me love you even more. You're truly one of a kind, baby rose.
+        </p>
+        <p>
+            I hope this year brings you as much happiness and warmth as you bring into my life. You deserve the entire universe, and I’ll spend forever trying to give it to you.
+        </p>
+        <p>
+            Needy more late-night talks, jokes that make you smiley, cuddly moments, and endless love. Happy Birthday, my lovey dovey cutie baby!
+        </p>
+        <p>
+            Forever yours, Berry
+        </p>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts">
+        <span class="emoji" id="heart">💖</span>
+        <span class="emoji">💖</span>
+        <span class="emoji">💖</span>
+    </div>
+
+    <!-- Floating Stars -->
+    <div class="floating-stars">
+        <span class="emoji">✨</span>
+        <span class="emoji">✨</span>
+        <span class="emoji">✨</span>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://www.example.com/love-background-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Password Protection Prompt
+        let password = prompt("Enter the password:");
+        if (password !== "21122023") {
+            alert("Incorrect password. You will be redirected.");
+            window.location = "https://www.google.com";
+        }
+    </script>
+</body>
+</html>
