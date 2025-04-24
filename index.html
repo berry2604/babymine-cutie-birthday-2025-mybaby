@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Maahi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      color: #4c0070;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hidden { display: none; }
+    .floating {
+      position: absolute;
+      animation: float 10s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+    img {
+      width: 250px;
+      border-radius: 20px;
+      margin: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .cake {
+      width: 100px;
+      margin: 2rem auto;
+    }
+    .message {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-top: 2rem;
+    }
+    .password-section {
+      margin-top: 50px;
+    }
+    input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #d291bc;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-section" id="login">
+    <h2>Enter the secret code to unlock your surprise 💜</h2>
+    <input type="password" id="passInput" placeholder="Enter password" />
+    <button onclick="checkPassword()">Unlock</button>
+  </div>
+
+  <div class="hidden" id="mainContent">
+    <img src="cake.gif" class="cake" id="cakeAnim" />
+    <div class="content hidden" id="birthdayMessage">
+      <h1>Happy Birthday, Maahi 💜🎉</h1>
+      <div class="message">
+        To the most beautiful, cutie , small baby, intelligent, kind and loving cutie baby I’ve ever known,<br>
+        today is your day, and I just want to say how endlessly lucky I am to have you in my life.<br><br>
+        Your smile lights up my darkest days, your laugh is my favorite melody, and your love is the greatest gift I could ever receive.<br><br>
+        Thank you for being my strength, my peace, my biggest supporter, and the cutest baby cutie I adore every single day.<br>
+        Seeing u handle me soooo cutely makes me love you even more. You're truly one of a kind, baby rose.<br><br>
+        I hope this year brings you as much happiness and warmth as you bring into my life.<br>
+        You deserve the entire universe, and I’ll spend forever trying to give it to you.<br><br>
+        Needy more late-night talks, jokes which makes u smiley, cuddly moments, and endless love.<br><br>
+        Happy Birthday, my lovey dovey cutie baby! <br><br>
+        Forever yours, <b>Berry</b>
+      </div>
+      <img src="img1.png" />
+      <img src="img2.png" />
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="happy_birthday.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating hearts and stars -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const emoji = Math.random() > 0.5 ? '💜' : (Math.random() > 0.5 ? '💖' : '⭐');
+      const el = document.createElement("div");
+      el.classList.add("floating");
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = (Math.random() * 30 + 20) + "px";
+      el.innerText = emoji;
+      el.style.animationDuration = (Math.random() * 20 + 5) + "s";
+      document.body.appendChild(el);
+    }
+
+    function checkPassword() {
+      const pass = document.getElementById("passInput").value;
+      if (pass === "21122023") {
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("mainContent").classList.remove("hidden");
+
+        setTimeout(() => {
+          document.getElementById("cakeAnim").style.display = 'none';
+          document.getElementById("birthdayMessage").classList.remove("hidden");
+        }, 4000);
+      } else {
+        alert("Wrong password, cutie 🥺");
+      }
+    }
+  </script>
+</body>
+</html>
