@@ -125,9 +125,9 @@
         document.getElementById("login").classList.add("hidden");
         document.getElementById("mainContent").classList.remove("hidden");
         const audio = document.getElementById("birthdayAudio");
-        audio.play().catch((error) => {
-          console.error('Audio play error:', error);
-          alert("Please allow audio to play on this page.");
+        audio.play().catch(err => {
+          console.log("Autoplay failed:", err);
+          alert("Click anywhere to enable music 🎶");
         });
         setTimeout(() => {
           document.getElementById("cakeAnim").style.display = 'none';
