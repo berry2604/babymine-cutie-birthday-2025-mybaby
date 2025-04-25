@@ -13,7 +13,8 @@
       background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
       color: #4c0070;
       text-align: center;
-      overflow: hidden;
+      overflow: auto;
+      height: 100vh;
     }
     .hidden { display: none; }
     .floating {
@@ -124,11 +125,12 @@
       if (pass === "21122023") {
         document.getElementById("login").classList.add("hidden");
         document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("birthdayAudio").play();
-        setTimeout(() => {
-          document.getElementById("cakeAnim").style.display = 'none';
-          document.getElementById("birthdayMessage").classList.remove("hidden");
-        }, 4000);
+
+        const audio = document.getElementById("birthdayAudio");
+        audio.play().catch((error) => {
+          console.error('Audio play error:', error);
+          alert("Please allow audio to play on this page.");
+        });
       } else {
         alert("Wrong password, cutie 🥺");
       }
