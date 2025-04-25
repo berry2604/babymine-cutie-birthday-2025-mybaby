@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Cutie</title>
+  <title>Happy Birthday Maahi</title>
   <style>
     body {
       margin: 0;
@@ -13,7 +13,7 @@
       background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
       color: #4c0070;
       text-align: center;
-      
+      overflow: hidden;
     }
     .hidden { display: none; }
     .floating {
@@ -80,11 +80,7 @@
     <button onclick="checkPassword()">Unlock</button>
   </div>
 
-  <div class="hidden" id="mainContent">  
-    <audio id="birthdayAudio">
-      <source src="https://www.dropbox.com/s/ds7wq7jvhgo6tymyr2egn/happy-birthday-254480.mp3?raw=1" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+  <div class="hidden" id="mainContent">
     <img src="cake.gif" class="cake" id="cakeAnim" />
     <div class="content hidden" id="birthdayMessage">
       <h1>Happy Birthday, Maahi 💜🎉</h1>
@@ -105,6 +101,9 @@
     </div>
   </div>
 
+  <audio autoplay loop>
+    <source src="happy_birthday.mp3" type="audio/mpeg" />
+  </audio>
 
   <!-- Floating hearts and stars -->
   <script>
@@ -120,21 +119,16 @@
     }
 
     function checkPassword() {
-      const enteredPassword = document.getElementById("password-input").value;
-
+      const pass = document.getElementById("passInput").value;
       if (pass === "21122023") {
         document.getElementById("login").classList.add("hidden");
-        const audio = document.getElementById("birthdayAudio");
-        audio.play().catch((error) => {
-          console.error('Audio play error:', error);
-          alert("Please allow audio to play on this page.");
-        });
+        document.getElementById("mainContent").classList.remove("hidden");
+
         setTimeout(() => {
           document.getElementById("cakeAnim").style.display = 'none';
           document.getElementById("birthdayMessage").classList.remove("hidden");
         }, 4000);
-        
-      }  else {
+      } else {
         alert("Wrong password, cutie 🥺");
       }
     }
