@@ -13,6 +13,9 @@
       background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
       color: #4c0070;
       text-align: center;
+      overflow: auto; /* Enable scrolling */
+      height: 100vh;
+      
     }
     .hidden { display: none; }
     .floating {
@@ -80,8 +83,8 @@
   </div>
 
   <div class="hidden" id="mainContent">  
-    <audio id="birthdayAudio" autoplay>
-      <source src="https://drive.google.com/uc?export=download&id=1lVL9FFgVaBwSXbC7-A5ftoMUdPiU-s9G" type="audio/mpeg">
+    <audio id="birthdayAudio">
+      <source src="https://www.dropbox.com/s/ds7wq7jvhgo6tymyr2egn/happy-birthday-254480.mp3?raw=1" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
     <img src="cake.gif" class="cake" id="cakeAnim" />
@@ -119,17 +122,21 @@
     }
 
     function checkPassword() {
-      const pass = document.getElementById("passInput").value;
+      const enteredPassword = document.getElementById("password-input").value;
+
       if (pass === "21122023") {
         document.getElementById("login").classList.add("hidden");
-        document.getElementById("mainContent").classList.remove("hidden");
-
         const audio = document.getElementById("birthdayAudio");
         audio.play().catch((error) => {
           console.error('Audio play error:', error);
           alert("Please allow audio to play on this page.");
         });
-      } else {
+        setTimeout(() => {
+          document.getElementById("cakeAnim").style.display = 'none';
+          document.getElementById("birthdayMessage").classList.remove("hidden");
+        }, 4000);
+        
+      }  else {
         alert("Wrong password, cutie 🥺");
       }
     }
