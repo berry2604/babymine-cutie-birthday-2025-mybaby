@@ -101,8 +101,9 @@
     </div>
   </div>
 
-  <audio autoplay loop>
-    <source src="happy_birthday.mp3" type="audio/mpeg" />
+  <audio id="birthdayAudio" preload="auto">
+    <source src="https://www.dropbox.com/s/ds7wq7jvhgo6tymyr2egn/happy-birthday-254480.mp3?raw=1" type="audio/mpeg" />
+    Your browser does not support the audio element.
   </audio>
 
   <!-- Floating hearts and stars -->
@@ -123,7 +124,11 @@
       if (pass === "21122023") {
         document.getElementById("login").classList.add("hidden");
         document.getElementById("mainContent").classList.remove("hidden");
-
+        const audio = document.getElementById("birthdayAudio");
+        audio.play().catch((error) => {
+          console.error('Audio play error:', error);
+          alert("Please allow audio to play on this page.");
+        });
         setTimeout(() => {
           document.getElementById("cakeAnim").style.display = 'none';
           document.getElementById("birthdayMessage").classList.remove("hidden");
