@@ -47,8 +47,10 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     .cake {
-      width: 100px;
+      width: 250px;
+      max-width: 90vw;
       margin: 2rem auto;
+      display: block;
     }
     .message {
       font-size: 1.2rem;
@@ -101,9 +103,8 @@
     </div>
   </div>
 
-  <audio id="birthdayAudio" preload="auto">
-    <source src="https://www.dropbox.com/s/ds7wq7jvhgo6tymyr2egn/happy-birthday-254480.mp3?raw=1" type="audio/mpeg" />
-    Your browser does not support the audio element.
+  <audio id="birthdayAudio" preload="auto" loop style="display: none;">
+    <source src="happy-birthday.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Floating hearts and stars -->
@@ -126,8 +127,7 @@
         document.getElementById("mainContent").classList.remove("hidden");
         const audio = document.getElementById("birthdayAudio");
         audio.play().catch(err => {
-          console.log("Autoplay failed:", err);
-          alert("Click anywhere to enable music 🎶");
+          console.log("Audio autoplay failed:", err);
         });
         setTimeout(() => {
           document.getElementById("cakeAnim").style.display = 'none';
