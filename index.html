@@ -101,9 +101,11 @@
     </div>
   </div>
 
-  <audio autoplay loop>
-    <source src="happy-birthday-254480.mp3" type="audio/mpeg" />
+  <audio id="birthdayAudio" loop>
+    <source src="birthday-song.mp3" type="audio/mpeg">
   </audio>
+
+  <button onclick="document.getElementById('birthdayAudio').play()">Play Birthday Song 🎶</button>
 
   <!-- Floating hearts and stars -->
   <script>
