@@ -81,6 +81,10 @@
   </div>
 
   <div class="hidden" id="mainContent">  
+    <audio id="birthdayAudio" autoplay>
+      <source src="https://drive.google.com/uc?export=download&id=1lVL9FFgVaBwSXbC7-A5ftoMUdPiU-s9G" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <img src="cake.gif" class="cake" id="cakeAnim" />
     <div class="content hidden" id="birthdayMessage">
       <h1>Happy Birthday, Maahi 💜🎉</h1>
@@ -101,9 +105,6 @@
     </div>
   </div>
 
-  <div id="audio-container">
-    <iframe src="https://drive.google.com/file/d/1lVL9FFgVaBwSXbC7-A5ftoMUdPiU-s9G/preview" width="640" height="80"></iframe>
-  </div>
 
   <!-- Floating hearts and stars -->
   <script>
@@ -123,7 +124,7 @@
       if (pass === "21122023") {
         document.getElementById("login").classList.add("hidden");
         document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("audioPlayer").contentWindow.postMessage('play', '*');
+        document.getElementById("birthdayAudio").play();
         setTimeout(() => {
           document.getElementById("cakeAnim").style.display = 'none';
           document.getElementById("birthdayMessage").classList.remove("hidden");
